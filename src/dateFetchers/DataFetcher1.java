@@ -12,11 +12,12 @@ public class DataFetcher1 {
 	public static String aCountry ="CAN" ;
 	public static int startDate ;
 	public static int endDate;
-	public static String indicator="SP.POP.TOTL";
-
 	
 	//Make an adaptor here to get indicators 
-	public static String indicatorType= "";
+
+	public static String indicatorType="SP.POP.TOTL";
+
+	
 	
 
 	public static void main(String[] args) {
@@ -30,7 +31,7 @@ public class DataFetcher1 {
 			
 			
 		
-		String urlString = String.format("http://api.worldbank.org/v2/country/%s/indicator/"+indicator+ "?date="+ startDate+":"+endDate+"&format=json", aCountry);
+		String urlString = String.format("http://api.worldbank.org/v2/country/%s/indicator/"+indicatorType+ "?date="+ startDate+":"+endDate+"&format=json", aCountry);
 			
 			//	"http://api.worldbank.org/v2/country/%s/indicator/SP.POP.TOTL?date=${startDate}:${endDate}&format=json", aCountry);
 

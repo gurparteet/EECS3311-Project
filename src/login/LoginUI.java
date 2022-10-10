@@ -92,7 +92,7 @@ public class LoginUI extends JFrame implements ActionListener{
 		
 		
 		
-		new 
+		 
 		
 		
 		
