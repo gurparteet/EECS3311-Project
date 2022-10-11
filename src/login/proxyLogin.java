@@ -14,12 +14,12 @@ import java.io.File;
 
 
 
-public class ProxyLogin {
+public class proxyLogin {
 	String incomingUsername, incomingPassword ;
 	static boolean loginStatus=false ;
 	static String loginMessage;
 	
-	ProxyLogin(String username , String password){
+	proxyLogin(String username , String password){
 		username=this.incomingUsername ;
 		password=this.incomingPassword ;
 		

@@ -7,7 +7,7 @@ import java.util.Scanner;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonParser;
 
-public class DataFetcher1 {
+public class dataFetcher1 {
 	
 	public static String aCountry ="CAN" ;
 	public static int startDate ;

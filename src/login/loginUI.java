@@ -17,7 +17,7 @@ import javax.swing.JTextField;
 
 
 
-public class LoginUI extends JFrame implements ActionListener{
+public class loginUI extends JFrame implements ActionListener{
 	
 	private static JLabel usernameLabel , passwordLabel;
 	private static JTextField usernameText;
@@ -41,7 +41,7 @@ public class LoginUI extends JFrame implements ActionListener{
 
 
 
-	LoginUI(){
+	loginUI(){
 		
 		usernameLabel= new JLabel();
 		usernameLabel = new JLabel("Username");
@@ -87,7 +87,7 @@ public class LoginUI extends JFrame implements ActionListener{
 		System.out.println(username);
 		System.out.println(password);
 		
-		ProxyLogin checkLogin=new ProxyLogin(username,password);
+		proxyLogin checkLogin=new proxyLogin(username,password);
 		
 		
 		
@@ -115,7 +115,7 @@ public class LoginUI extends JFrame implements ActionListener{
 		
 		try {
 			
-			LoginUI login1 = new LoginUI();
+			loginUI login1 = new loginUI();
 			login1.setSize(450, 130);;
 			login1.setVisible(true);
 	
