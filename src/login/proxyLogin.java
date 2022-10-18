@@ -3,94 +3,93 @@ package login;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.DocumentBuilder;  
+import javax.xml.parsers.DocumentBuilder;
+
+import org.w3c.dom.CharacterData;
 import org.w3c.dom.Document;  
-import org.w3c.dom.NodeList;  
+import org.w3c.dom.NodeList;
+
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonIOException;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.google.gson.JsonSyntaxException;
+
+import netscape.javascript.JSObject;
+
 import org.w3c.dom.Node;  
 import org.w3c.dom.Element;  
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.util.HashMap;
 
 
 
 
 
-public class proxyLogin {
+public class proxyLogin extends UserData{
 	String incomingUsername, incomingPassword ;
 	static boolean loginStatus=false ;
 	static String loginMessage;
+
 	
-	proxyLogin(String username , String password){
+	
+	
+	
+	/**
+	 *  This is a constructor for ProxyLogin with parameters username and password
+	 *  
+	 * @param username - String coming form user
+	 * @param password- String coming from user 
+	 */
+	
+	proxyLogin(String username , String password ){
 		username=this.incomingUsername ;
-		password=this.incomingPassword ;
+		password=this.incomingPassword ;		
+	
 		
 		
+	/**
+	 * This method invokes ProxyLogin to validate 
+	 */
 		loginStatus= doValidate(incomingUsername, incomingPassword,loginMessage);
 		
-			
 		
-		// Read user.xml file  and validate username and password // and launch main GUI
+					
 		
 	}
 	
-	public boolean doValidate(String username, String password ,String loginMessage) {
+	
+	
+	public boolean doValidate(String username, String password ,String loginMessage )   {
 		boolean flag=false ;
+		UserData uData=new UserData();
+		HashMap<String,String> loginData = uData.getUserData(); 
+			
+		
+				
+		if(loginData.containsKey(username)) {
+			if(loginData.get(username).equals(password)) {
+				flag=true;
+				loginMessage="Login Successful" ;
+			}else {
+				loginMessage="Invalid Password- Login Unsuccessful" ;
+			}
+		
+		}else {
+			loginMessage="Username doesnot exist" ;
+			
+		}
+		
+		
+		
 		
 		return flag;
 		
 		
-		//-----------Parsing XML file ----------
-//	try {	
-//		File file =new File("/Users/gurparteetsinghpurbe/Desktop/Document/Studies/YORK STUDIES/3rd Year/Fall 2022/EECS 3311 - Software Design/Project/src/login/userDatabase.xml");
-//		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance(); 
-//		
-//		DocumentBuilder db = dbf.newDocumentBuilder();    
-//		Document parseDoc = db.parse(file) ;
-//		parseDoc.getDocumentElement().normalize();
-//		
-//		System.out.println("Root Element" + parseDoc.getDocumentElement().getNodeName());
-//		NodeList nodeList= parseDoc.getElementsByTagName("credentials");
-//		
-//		for(int temp= 0; temp < nodeList.getLength(); temp++ ) {
-//			Node node= nodeList.item(temp);
-//			
-//		}
-//		
-//		
-//		
-//		
-//		NodeList nodeList= parseDoc.getElementByTagName("credentials") ;
-//		
-//		
-//		
-//		
-//
-//		
-//	}
-//	catch(Exception e){
-//		
-//	}
-
-
-	
-		
-		
-		
-		
-		
-		
-		
-		//---------------------
-		
-		
-		
-
-		
 	}
 	
-
-
-	
-	
-	
-
-}
+}		
+		
